@@ -31,7 +31,7 @@ h1 {
     box-shadow: 0 4px 6px -6px #202020;
 }
 
-main {
+#startTemplate {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -81,7 +81,7 @@ article {
     margin: 0;
 }
 
-.unavailable {
+.soldOut {
     opacity: 0.7;
 }
 
@@ -108,14 +108,14 @@ article {
     text-decoration: line-through;
 }
 
-.image .stock {
+.image .soldOut {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
 }
 
-.stock h3 {
+.soldOut h3 {
     background: brown;
     margin: 0;
     padding: 13px;
@@ -169,13 +169,13 @@ article {
 }
 
 @media only screen and (max-width: 1171px) {
-    main {
+    #startTemplate {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media only screen and (max-width: 802px) {
-    main {
+    #startTemplate {
         grid-template-columns: 1fr;
     }
 

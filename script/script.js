@@ -24,22 +24,47 @@ $(document).ready(function () {
 
 // end mansory
 
-// to make a clone + the template needs this to be visible
 
-const elTemplate = document.querySelector("#myTemplate").content;
+// fetch data
 
-// el clone
+fetch("https://kea-alt-del.dk/t5/api/productlist")
+    .then(function (response) {
+        console.log(response)
+        return response.json();
+    })
+    .then(function (data) {
 
-const myClone = elTemplate.cloneNode(true);
+        dataReceived(data);
+    })
 
-// to change the content
+function dataReceived(products) {
+    products.forEach(showProduct)
+}
 
-// myClone.querySelector("h2").textContent = "Alloy";
+function showProduct(myProduct) {
+    console.log(myProduct)
+    // to make a clone + the template needs this to be visible
 
-// to change the new 'parent' element
+    const elTemplate = document.querySelector("#myTemplate").content;
 
-const parentEl = document.querySelector("#startTemplate");
+    // el clone
 
-// append the clone to the DOM
+    const myClone = elTemplate.cloneNode(true);
 
-parentEl.appendChild(myClone);
+    // to change the content
+    //  myClone.querySelector(".discount").textContent = myProduct.id;
+    myClone.querySelector("h2").textContent = myProduct.name;
+    myClone.querySelector(".price").textContent = myProduct.price + " " + "-,";
+    myClone.querySelector(".description").textContent = myProduct.shortdescription;
+    myClone.querySelector(".discount").textContent = myProduct.discount + " " + "-,";
+
+    // myClone.querySelector("img").src = myProduct.image;
+
+    // to change the new 'parent' element
+
+    const parentEl = document.querySelector("#startTemplate");
+
+    // append the clone to the DOM
+
+    parentEl.appendChild(myClone);
+}
