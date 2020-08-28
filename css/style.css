@@ -1,0 +1,188 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #6F2424;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.image {
+    display: flex;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    background: #6F2424;
+    margin: 0;
+    padding: 30px 0;
+    -webkit-box-shadow: 0 4px 6px -6px #202020;
+    -moz-box-shadow: 0 4px 6px -6px #202020;
+    box-shadow: 0 4px 6px -6px #202020;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    margin: 1rem;
+    margin-top: 0;
+}
+
+article {
+    text-align: center;
+    margin: 10px;
+    padding: 0 20px;
+    border: 1px solid #632121;
+    border-radius: 20px;
+    padding-bottom: 16px;
+}
+
+.course h2 {
+    text-transform: lowercase;
+    letter-spacing: 1px;
+}
+
+.image {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.image .description {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    height: auto;
+}
+
+.image:hover .description {
+    visibility: visible;
+}
+
+.description {
+    background: #632121;
+    border-radius: 19px;
+    padding: 2px 15px;
+    box-shadow: inset 3px 3px 9px 0px rgba(107, 30, 30, 0.8);
+    margin: 0;
+}
+
+.unavailable {
+    opacity: 0.7;
+}
+
+.image .price {
+    position: absolute;
+    bottom: 0%;
+    right: 0;
+    background: darkgreen;
+    padding: 6px 10px;
+    border-radius: 13px 0 20px 0;
+}
+
+.image .discount {
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    background-color: darkgoldenrod;
+    padding: 6px 10px;
+    border-radius: 0 13px 0 20px;
+    font-weight: bold;
+}
+
+.image .cheaper {
+    text-decoration: line-through;
+}
+
+.image .stock {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.stock h3 {
+    background: brown;
+    margin: 0;
+    padding: 13px;
+    border-radius: 20px 20px 0px 0px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* BUTTONS OF THE CATEGORIES */
+
+.categories {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin-top: 30px;
+}
+
+.categories .button {
+    margin: 4px 8px;
+    text-transform: lowercase;
+    cursor: pointer;
+    padding: 6px 10px;
+    background-color: #632121;
+    width: 100px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+/* VEGETERIAN AND ALLERGES STATUS */
+
+.extras {
+    text-align: left;
+    border-radius: 20px;
+    padding: 4px 15px;
+}
+
+.extras p {
+    font-size: 16px;
+    border-radius: 0;
+}
+
+.extras i {
+    margin: 0 4px;
+    color: white;
+}
+
+.rating {
+    margin: 10px;
+    text-align: right;
+}
+
+@media only screen and (max-width: 1171px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 802px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .categories {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        width: auto;
+    }
+}

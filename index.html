@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://static.tumblr.com/xd6ujov/9Rpouml9f/imagesloaded.pkgd.min.js"></script>
+</head>
+
+<body>
+
+
+    <header>
+        <h1>The menu</h1>
+    </header>
+
+    <div class="categories">
+        <div class="button" filter="course"><span>all</span></div>
+        <div class="button" filter="entree"><span>entree</span></div>
+        <div class="button" filter="sideOrders"><span>side orders</span></div>
+        <div class="button" filter="main_course"><span>main course</span></div>
+        <div class="button" filter="dessert"><span>dessert</span></div>
+        <div class="button" filter="drink"><span>drinks</span></div>
+    </div>
+
+    <div id="startTemplate"></div>
+
+    <template id="myTemplate">
+
+        <main>
+            <article class="course entree">
+                <h2>Ring bread</h2>
+                <div class="image">
+                    <img src="images/ringbroed-druer-md.jpg" alt="ring bread">
+                    <div class="description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum repellat, fugiat molestiae consectetur rem vitae iusto. Velit hic a id pariatur laboriosam? Temporibus fugiat, tempore minima in optio ut perferendis quia voluptas dolores consectetur nisi omnis. Voluptatum quidem non debitis, qui voluptas incidunt praesentium voluptates, molestias accusantium dolor, ad explicabo.</p>
+                        <div class="extras">
+                            <div class="allergens">
+                                <p><i class="far fa-thumbs-down"></i> Not suitable for those that are lactose intelorant</p>
+                            </div>
+                            <div class="vegeterian">
+                                <p><i class="far fa-thumbs-up"></i> Vegetarian approved</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price">29,-</div>
+                </div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </article>
+            <article class="course drink">
+                <h2>Bochkarev beer</h2>
+                <div class="image">
+                    <img src="images/bochkarev-md.jpg" alt="bochkarev">
+                    <div class="description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum repellat, fugiat molestiae consectetur rem vitae iusto. Velit hic a id pariatur laboriosam? Temporibus fugiat, tempore minima in optio ut perferendis quia voluptas dolores consectetur nisi omnis. Voluptatum quidem non debitis, qui voluptas incidunt praesentium voluptates, molestias accusantium dolor, ad explicabo.</p>
+                    </div>
+                    <div class="price">55,-</div>
+                </div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </article>
+            <article class="course dessert">
+                <h2>Pavlova with melon</h2>
+                <div class="image unavailable">
+                    <img src="images/pavlova-md.jpg" alt="ring bread">
+                    <div class="stock">
+                        <h3>Out of stock</h3>
+                    </div>
+                    <div class="description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum repellat, fugiat molestiae consectetur rem vitae iusto. Velit hic a id pariatur laboriosam? Temporibus fugiat, tempore minima in optio ut perferendis quia voluptas dolores consectetur nisi omnis. Voluptatum quidem non debitis, qui voluptas incidunt praesentium voluptates, molestias accusantium dolor, ad explicabo.</p>
+                    </div>
+                    <div class="price cheaper">49,-</div>
+                    <div class="discount">40,-</div>
+                </div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </article>
+        </main>
+    </template>
+    <!-- under is the template to use with fetched data
+    <article class="course dessert">
+        <div class="name"></div>
+        <div class="imagecontents">
+            <img src="" alt="">
+            <div class="price cheaper"></div>
+            <div class="discount"></div>
+            <div class="soldOut"></div>
+        </div>
+        <div id="popup">
+            <div class="popup_description">
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse itaque, sit dolorem expedita ducimus sed iure numquam, distinctio dolore voluptatibus tenetur amet autem cupiditate vitae dolorum deleniti minus veritatis iusto nulla, quia totam. Rem id ullam optio, aliquid ipsam praesentium recusandae ratione, qui voluptate omnis unde voluptas ad expedita eos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="rating"></div>
+    </article>
+-->
+
+    <footer>
+
+    </footer>
+
+</body>
+
+<script src="script/script.js"></script>
+<script src="https://kit.fontawesome.com/62614983e3.js" crossorigin="anonymous"></script>
+
+</html>
