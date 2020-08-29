@@ -9,13 +9,13 @@ body {
     box-sizing: border-box;
 }
 
-.image img {
+.image_inner img {
     max-width: 100%;
     height: auto;
     border-radius: 20px;
 }
 
-.image {
+.image_inner {
     display: flex;
 }
 
@@ -31,7 +31,11 @@ h1 {
     box-shadow: 0 4px 6px -6px #202020;
 }
 
-#startTemplate {
+h2 {
+    text-align: center;
+}
+
+#starter {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -48,18 +52,14 @@ article {
     padding-bottom: 16px;
 }
 
-.course h2 {
-    text-transform: lowercase;
-    letter-spacing: 1px;
-}
 
-.image {
+.image_inner {
     position: relative;
     padding: 0;
     margin: 0;
 }
 
-.image .description {
+.image_inner .description {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -69,7 +69,7 @@ article {
     height: auto;
 }
 
-.image:hover .description {
+.image_inner:hover .description {
     visibility: visible;
 }
 
@@ -81,11 +81,7 @@ article {
     margin: 0;
 }
 
-.soldOut {
-    opacity: 0.7;
-}
-
-.image .price {
+.image_inner .price {
     position: absolute;
     bottom: 0%;
     right: 0;
@@ -94,7 +90,7 @@ article {
     border-radius: 13px 0 20px 0;
 }
 
-.image .discount {
+.image_inner .discount {
     position: absolute;
     bottom: 0%;
     left: 0;
@@ -104,18 +100,18 @@ article {
     font-weight: bold;
 }
 
-.image .cheaper {
+.image_inner .cheaper {
     text-decoration: line-through;
 }
 
-.image .soldOut {
+.image_inner .soldOut {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
 }
 
-.soldOut h3 {
+.soldOut p {
     background: brown;
     margin: 0;
     padding: 13px;
@@ -169,13 +165,13 @@ article {
 }
 
 @media only screen and (max-width: 1171px) {
-    #startTemplate {
+    #starter {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media only screen and (max-width: 802px) {
-    #startTemplate {
+    #starter {
         grid-template-columns: 1fr;
     }
 

@@ -4,30 +4,10 @@
 
 // mansory to make the filters work
 
-$(document).ready(function () {
-    var $grid = $("main");
-    $grid.imagesLoaded(function () {
-        $grid.masonry({
-            itemSelector: "article",
-            columnWidth: 200
-        });
-    });
-    $(".button").click(function () {
-        $(this).addClass("selected");
-        $(".button").not($(this)).removeClass("selected");
-        var ssf = $(this).attr("filter");
-        $("article." + ssf).show();
-        $("article").not("." + ssf).hide();
-        $grid.masonry();
-    });
-});
-
-// end mansory
-
 
 // fetch data
 
-fetch("https://kea-alt-del.dk/t5/api/productlist")
+fetch("https://kea-alt-del.dk/t5/api/productlist?category=starter")
     .then(function (response) {
         console.log(response)
         return response.json();
@@ -53,18 +33,33 @@ function showProduct(myProduct) {
 
     // to change the content
     //  myClone.querySelector(".discount").textContent = myProduct.id;
-    myClone.querySelector("h2").textContent = myProduct.name;
+    myClone.querySelector("h3").textContent = myProduct.name;
     myClone.querySelector(".price").textContent = myProduct.price + " " + "-,";
     myClone.querySelector(".description").textContent = myProduct.shortdescription;
     myClone.querySelector(".discount").textContent = myProduct.discount + " " + "-,";
+    //    myClone.querySelector(".soldOut").textContent = "product out of stock";
+
+    // noStock();
 
     // myClone.querySelector("img").src = myProduct.image;
 
     // to change the new 'parent' element
 
-    const parentEl = document.querySelector("#startTemplate");
+    const parentEl = document.querySelector("section#starter");
 
     // append the clone to the DOM
 
     parentEl.appendChild(myClone);
+
+
+    // done cloning above
+
+    if (myProduct.soldout) {
+        console.log("sold out indeed");
+        document.querySelector(".course").style.opacity = 50;
+
+    } else {
+        console.log("not sold out");
+        document.querySelector(".course").style.opacity = 100;
+    }
 }
