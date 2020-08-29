@@ -59,27 +59,14 @@ article {
     margin: 0;
 }
 
-.image_inner .description {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    visibility: hidden;
-    height: auto;
-}
-
-.image_inner:hover .description {
-    visibility: visible;
-}
 
 .description {
-    background: #632121;
     border-radius: 19px;
-    padding: 2px 15px;
+    padding: 20px 15px;
     box-shadow: inset 3px 3px 9px 0px rgba(107, 30, 30, 0.8);
     margin: 0;
 }
+
 
 .image_inner .price {
     position: absolute;
@@ -120,26 +107,71 @@ article {
     letter-spacing: 1px;
 }
 
-/* BUTTONS OF THE CATEGORIES */
+/* VIEW MORE INFO */
 
-.categories {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    margin-top: 30px;
+.modal {
+    display: none;
+    position: fixed;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.categories .button {
-    margin: 4px 8px;
-    text-transform: lowercase;
+.modal-content {
+    position: relative;
+    background-color: #6F2424;
+    padding: 40px;
+    margin: auto;
+    width: 75%;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 4%;
+    right: 1%;
+    color: lightgray;
+    font-size: 24px;
+    font-weight: bold;
     cursor: pointer;
-    padding: 6px 10px;
-    background-color: #632121;
-    width: 100px;
-    text-align: center;
-    border-radius: 3px;
 }
+
+.close-btn:hover {
+    color: darkgray;
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
 
 /* VEGETERIAN AND ALLERGES STATUS */
 
