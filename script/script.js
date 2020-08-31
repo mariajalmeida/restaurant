@@ -36,6 +36,12 @@ function showProduct(myProduct) {
 
     // if statements
 
+    if (myProduct.alcohol) {
+        console.log("alcoholic drink");
+
+    } else {
+        console.log("no alcohol here");
+    }
     if (myProduct.soldout) {
         console.log("sold out indeed");
         myClone.querySelector(".soldOut").classList.remove("hidden");
@@ -71,9 +77,25 @@ function showProduct(myProduct) {
 
     myClone.querySelector("img").src = mediumImg + myProduct.image + "-md.jpg";
 
+    // filters's classes
+
+    const article = myClone.querySelector("article");
+
+    if (myProduct.vegetarian) {
+        article.classList.add("vegeterian");
+    }
+
+    if (myProduct.discount) {
+        article.classList.add("discount");
+    }
+
+    if (myProduct.alcohol) {
+        article.classList.add("alcohol");
+    }
+    //
 
 
-    let link = productsLinkid + myClone.id;
+    myClone.productsLinkid + myProduct.id;
 
 
     // to change the new 'parent' element
@@ -87,12 +109,12 @@ function showProduct(myProduct) {
 
 
     // modal box
-
     let modalBtn = document.getElementById("modal-btn");
     let modal = document.querySelector(".modal");
     let closeBtn = document.querySelector(".close-btn");
 
     modalBtn.onclick = function () {
+        console.log("modal open");
         modal.style.display = "block";
     }
     closeBtn.onclick = function () {
@@ -103,4 +125,48 @@ function showProduct(myProduct) {
             modal.style.display = "none";
         }
     }
+
+
+}
+
+// veggie filter part ii
+
+const veggieFilter = document.querySelector("#veggiefilter");
+veggieFilter.addEventListener("click", filterVeggieClicked);
+
+function filterVeggieClicked() {
+    // select our veggie approved meals
+    const articles = document.querySelectorAll("article:not(.vegeterian)");
+
+    articles.forEach(elem => {
+        elem.classList.toggle("hidden");
+    })
+}
+
+// discount filter part ii
+
+const discountFilter = document.querySelector("#discount");
+discountFilter.addEventListener("click", filterDiscountClicked);
+
+function filterDiscountClicked() {
+    // select our discounted meals
+    const articles = document.querySelectorAll("article:not(.discount)");
+
+    articles.forEach(elem => {
+        elem.classList.toggle("hidden");
+    })
+}
+
+// alcohol filter part ii
+
+const nonalcoholicFilter = document.querySelector("#nonalcoholic");
+nonalcoholicFilter.addEventListener("click", filteralcoholClicked);
+
+function filteralcoholClicked() {
+    // select our nonalcoholic approved meals
+    const articles = document.querySelectorAll("article.alcohol");
+
+    articles.forEach(elem => {
+        elem.classList.toggle("hidden");
+    })
 }
