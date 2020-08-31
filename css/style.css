@@ -107,6 +107,14 @@ article {
     letter-spacing: 1px;
 }
 
+.hidden {
+    display: none;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
 /* VIEW MORE INFO */
 
 .modal {
@@ -135,8 +143,8 @@ article {
 
 .close-btn {
     position: absolute;
-    top: 4%;
-    right: 1%;
+    top: 10px;
+    right: 10px;
     color: lightgray;
     font-size: 24px;
     font-weight: bold;
@@ -171,12 +179,10 @@ article {
     }
 }
 
-
-
 /* VEGETERIAN AND ALLERGES STATUS */
 
 .extras {
-    text-align: left;
+    text-align: center;
     border-radius: 20px;
     padding: 4px 15px;
 }

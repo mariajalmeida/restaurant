@@ -34,6 +34,35 @@ function showProduct(myProduct) {
     // el clone
     const myClone = elTemplate.cloneNode(true);
 
+    // if statements
+
+    if (myProduct.soldout) {
+        console.log("sold out indeed");
+        myClone.querySelector(".soldOut").classList.remove("hidden");
+
+    } else {
+        console.log("not sold out");
+        myClone.querySelector(".soldOut").classList.add("hidden");
+
+    }
+
+    if (myProduct.vegetarian) {
+        console.log("vegeterian indeed");
+        myClone.querySelector(".vegeterian").classList.add("hidden");
+
+    } else {
+        console.log("not vegetarian appropriate");
+        myClone.querySelector(".vegeterian").classList.remove("hidden");
+    }
+
+    if (myProduct.discount) {
+        console.log("on discount");
+        myClone.querySelector(".price").classList.add("strike");
+    } else {
+        console.log("not on discount");
+        myClone.querySelector(".discount").classList.add("hidden");
+    }
+
     // to change the content
     myClone.querySelector("h3").textContent = myProduct.name;
     myClone.querySelector(".price").textContent = myProduct.price + " " + "-,";
@@ -41,6 +70,8 @@ function showProduct(myProduct) {
     myClone.querySelector(".discount").textContent = myProduct.discount + " " + "-,";
 
     myClone.querySelector("img").src = mediumImg + myProduct.image + "-md.jpg";
+
+
 
     let link = productsLinkid + myClone.id;
 
@@ -54,25 +85,12 @@ function showProduct(myProduct) {
 
     // done cloning above
 
-    if (myProduct.soldout) {
-        console.log("sold out indeed");
-        document.querySelector(".course").style.opacity = 0;
-
-    } else {
-        console.log("not sold out");
-        document.querySelector(".course").style.opacity = 100;
-    }
-    if (myProduct.vegetarian) {
-        console.log("vegeterian indeed");
-    } else {
-        console.log("not vegetarian appropriate");
-    }
 
     // modal box
 
-    let modalBtn = document.getElementById("modal-btn")
-    let modal = document.querySelector(".modal")
-    let closeBtn = document.querySelector(".close-btn")
+    let modalBtn = document.getElementById("modal-btn");
+    let modal = document.querySelector(".modal");
+    let closeBtn = document.querySelector(".close-btn");
 
     modalBtn.onclick = function () {
         modal.style.display = "block";
