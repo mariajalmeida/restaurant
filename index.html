@@ -12,56 +12,52 @@
 
 
     <header>
-        <h1>The menu</h1>
+
+        <h1>Petrograd restaurant</h1>
+
+        <nav>
+
+        </nav>
     </header>
 
-    <!--
-    <div class="categories">
-        <div class="button" filter="course"><span>all</span></div>
-        <div class="button" filter="entree"><span>entree</span></div>
-        <div class="button" filter="sideOrders"><span>side orders</span></div>
-        <div class="button" filter="main_course"><span>main course</span></div>
-        <div class="button" filter="dessert"><span>dessert</span></div>
-        <div class="button" filter="drink"><span>drinks</span></div>
-    </div>
--->
 
-    <details>
-        <summary>Filters</summary>
-        <button id="veggiefilter">Vegetarian</button>
-        <button id="nonalcoholic">Non-alcoholic</button>
-        <button id="discount">On discount</button>
-    </details>
+    <div class="filters">
+        <details>
+            <summary>What's your poision?</summary>
+            <button id="veggiefilter">Vegetarian</button>
+            <button id="nonalcoholic">Non-alcoholic</button>
+            <button id="discount">On discount</button>
+        </details>
+    </div>
 
 
     <main class="theproducts">
 
-
-        <section id="starter">
-            <h2>Starter</h2>
-
-            <template id="myTemplate">
-                <article class="course">
-                    <h3>Name</h3>
-                    <div class="image_inner">
-                        <div class="soldOut">
-                            <p>Sold out</p>
-                        </div>
-                        <img src="images/ringbroed-druer-md.jpg" alt="ring bread">
-                        <div class="price">29,-</div>
-                        <div class="discount">40,-</div>
+        <template id="myTemplate">
+            <article class="course">
+                <h3>Name</h3>
+                <div class="image_inner">
+                    <div class="soldOut">
+                        <p>Sold out</p>
                     </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
+                    <img src="images/ringbroed-druer-md.jpg" alt="ring bread">
+                    <div class="price">29,-</div>
+                    <div class="discount">40,-</div>
+                </div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
 
-                    <button id="modal-btn">View more</button>
+                <button id="modal-btn">View more</button>
 
 
+
+
+                <!--
                     <div class="modal">
 
 
@@ -81,228 +77,34 @@
                         </div>
 
                     </div>
-                </article>
-            </template>
-        </section>
-
-        <section id="main">
-            <h2>Main</h2>
-            <!--
-                <article class="course">
-                    <h3>Name</h3>
-                    <div class="image_inner">
-                        <div class="soldOut">
-                            <p>Sold out</p>
-                        </div>
-                        <img src="images/lunknepandekager-md.jpg" alt="ring bread">
-                        <div class="price">29,-</div>
-                        <div class="discount">40,-</div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div id="popup">
-                        <div class="popup_inner">
-                            <div class="description">
-                                <p>details of the food/drink</p>
-                                <div class="extras">
-                                    <div class="allergens">
-                                        <p><i class="far fa-thumbs-down"></i> Not suitable for those that are lactose intelorant</p>
-                                    </div>
-                                    <div class="vegeterian">
-                                        <p><i class="far fa-thumbs-up"></i> Vegetarian approved</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
 -->
-        </section>
 
-        <section id="dessert">
-            <h2>Dessert</h2>
-            <!--
-                <article class="course">
-                    <h3>Name</h3>
-                    <div class="image_inner">
-                        <div class="soldOut">
-                            <p>Sold out</p>
-                        </div>
-                        <img src="images/pavlova-md.jpg" alt="ring bread">
-                        <div class="price">29,-</div>
-                        <div class="discount">40,-</div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div id="popup">
-                        <div class="popup_inner">
-                            <div class="description">
-                                <p>details of the food/drink</p>
-                                <div class="extras">
-                                    <div class="allergens">
-                                        <p><i class="far fa-thumbs-down"></i> Not suitable for those that are lactose intelorant</p>
-                                    </div>
-                                    <div class="vegeterian">
-                                        <p><i class="far fa-thumbs-up"></i> Vegetarian approved</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
--->
-        </section>
-
-        <section id="sideorders">
-            <h2>Sideorders</h2>
-            <!--
-                <article class="course">
-                    <h3>Name</h3>
-                    <div class="image_inner">
-                        <div class="soldOut">
-                            <p>Sold out</p>
-                        </div>
-                        <img src="images/ringbroed-druer-md.jpg" alt="ring bread">
-                        <div class="price">29,-</div>
-                        <div class="discount">40,-</div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div id="popup">
-                        <div class="popup_inner">
-                            <div class="description">
-                                <p>details of the food/drink</p>
-                                <div class="extras">
-                                    <div class="allergens">
-                                        <p><i class="far fa-thumbs-down"></i> Not suitable for those that are lactose intelorant</p>
-                                    </div>
-                                    <div class="vegeterian">
-                                        <p><i class="far fa-thumbs-up"></i> Vegetarian approved</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
--->
-        </section>
-
-        <section id="drinks">
-            <h2>drinks</h2>
-            <!--
-                <article class="course">
-                    <h3>Name</h3>
-                    <div class="image_inner">
-                        <div class="soldOut">
-                            <p>Sold out</p>
-                        </div>
-                        <img src="images/ringbroed-druer-md.jpg" alt="ring bread">
-                        <div class="price">29,-</div>
-                        <div class="discount">40,-</div>
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div id="popup">
-                        <div class="popup_inner">
-                            <div class="description">
-                                <p>details of the food/drink</p>
-                                <div class="extras">
-                                    <div class="allergens">
-                                        <p><i class="far fa-thumbs-down"></i> Not suitable for those that are lactose intelorant</p>
-                                    </div>
-                                    <div class="vegeterian">
-                                        <p><i class="far fa-thumbs-up"></i> Vegetarian approved</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
--->
-        </section>
-        <!--
-            <article class="course drink">
-                <h2>Bochkarev beer</h2>
-                <div class="image">
-                    <img src="images/bochkarev-md.jpg" alt="bochkarev">
-                    <div class="description">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum repellat, fugiat molestiae consectetur rem vitae iusto. Velit hic a id pariatur laboriosam? Temporibus fugiat, tempore minima in optio ut perferendis quia voluptas dolores consectetur nisi omnis. Voluptatum quidem non debitis, qui voluptas incidunt praesentium voluptates, molestias accusantium dolor, ad explicabo.</p>
-                    </div>
-                    <div class="price">55,-</div>
-                </div>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
             </article>
--->
-        <!--
-            <article class="course dessert">
-                <h2>Pavlova with melon</h2>
-                <div class="image unavailable">
-                    <img src="images/pavlova-md.jpg" alt="ring bread">
-                    <div class="stock">
-                        <h3>Out of stock</h3>
-                    </div>
-                    <div class="description">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum repellat, fugiat molestiae consectetur rem vitae iusto. Velit hic a id pariatur laboriosam? Temporibus fugiat, tempore minima in optio ut perferendis quia voluptas dolores consectetur nisi omnis. Voluptatum quidem non debitis, qui voluptas incidunt praesentium voluptates, molestias accusantium dolor, ad explicabo.</p>
-                    </div>
-                    <div class="price cheaper">49,-</div>
-                    <div class="discount">40,-</div>
-                </div>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-            </article>
--->
+        </template>
+
+
+
     </main>
-
-    <!-- under is the template to use with fetched data
-    <article class="course entree">
-        <div class="name"></div>
-        <div class="image_inner">
-            <img src="" alt="">
-            <div class="price cheaper"></div>
-            <div class="discount"></div>
-            <div class="soldOut"></div>
-        </div>
-        <div id="popup">
-            <div class="popup_description">
-                <div class="description">
-                    <p></p>
+    <div class="modal-background hide">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-name">NAME</div>
+            <img src="" alt="" class="modal-image" />
+            <div class="modal-description">LONG DESCRIPTION
+                <p>details of the food/drink</p>
+                <div class="extras">
+                    <div class="allergens">
+                        <p><i class="far fa-thumbs-down"></i> Not suitable for those that are lactose intelorant</p>
+                    </div>
+                    <div class="vegeterian">
+                        <p><i class="far fa-thumbs-up"></i> Vegetarian approved</p>
+                    </div>
                 </div>
             </div>
+            <h4 class="modal-price">PRICE</h4>
         </div>
-        <div class="rating"></div>
-    </article>
--->
+    </div>
+
 
     <footer>
 

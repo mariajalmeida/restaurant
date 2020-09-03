@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 body {
     padding: 0;
     margin: 0;
@@ -7,6 +11,10 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .image_inner img {
@@ -19,16 +27,38 @@ body {
     display: flex;
 }
 
-h1 {
-    text-align: center;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     text-transform: uppercase;
     color: white;
     background: #6F2424;
     margin: 0;
-    padding: 30px 0;
+    padding: 20px 0;
     -webkit-box-shadow: 0 4px 6px -6px #202020;
     -moz-box-shadow: 0 4px 6px -6px #202020;
     box-shadow: 0 4px 6px -6px #202020;
+}
+
+h1 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 30px;
+}
+
+h1,
+nav {
+    margin: 1rem;
+}
+
+nav a {
+    margin: 4px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    font-weight: bold;
 }
 
 h2 {
@@ -36,7 +66,43 @@ h2 {
     grid-column: 1/-1;
 }
 
-#starter {
+
+/* header end */
+
+/*filters */
+
+.filters {
+    display: block;
+    margin: auto;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    width: 150px;
+    text-align: right;
+    border-radius: 3px;
+    padding: 10px 12px;
+    font-family: 'Lato', sans-serif;
+}
+
+
+.filters button {
+    width: 100px;
+    background: white;
+    border: none;
+    padding: 4px 4px;
+    font-family: 'Lato', sans-serif;
+    text-align: right;
+}
+
+/* the sections */
+
+h2 {
+    text-transform: uppercase;
+    font-size: 27px;
+    font-family: 'Syncopate', sans-serif;
+}
+
+section {
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -118,20 +184,26 @@ article {
 
 /* VIEW MORE INFO */
 
-.modal {
+.hide {
     display: none;
+}
+
+.modal-background {
     position: fixed;
-    padding-top: 50px;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {
     position: relative;
     background-color: #6F2424;
+    border: 1px solid #7c1f17;
+    margin: 1em;
+    padding: 2em;
     padding: 40px;
     margin: auto;
     width: 75%;
@@ -139,8 +211,8 @@ article {
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
-    border-radius: 10px;
 }
+
 
 .close-btn {
     position: absolute;

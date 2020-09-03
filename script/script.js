@@ -1,3 +1,5 @@
+const modal = document.querySelector(".modal-background");
+
 const productlistLink = "https://kea-alt-del.dk/t5/api/productlist";
 const categoriesLink = "https://kea-alt-del.dk/t5/api/categories";
 const productsLinkid = "https://kea-alt-del.dk/t5/api/product?id=";
@@ -10,16 +12,63 @@ let mediumImg = image_path + "medium/";
 
 
 
-// fetch data
+// fetch products by category
+function init() {
+    fetch(categoriesLink)
+        .then(r => r.json())
+        .then(
+            function (data) {
+                categoriesReceived(data);
+            })
+}
+init();
 
-fetch(productlistLink)
-    .then(function (response) {
-        console.log(response)
-        return response.json();
+
+
+// categories
+function categoriesReceived(cats) {
+    createNavigation(cats);
+    createSections(cats);
+    fetchProducts();
+}
+
+// create our sections via script rather than on the dom/html
+function createSections(categories) {
+    categories.forEach(category => {
+        const section = document.createElement("section");
+        section.setAttribute("id", category);
+        const h2 = document.createElement("h2");
+        h2.textContent = category;
+        section.appendChild(h2);
+        document.querySelector(".theproducts").appendChild(section);
     })
-    .then(function (data) {
-        dataReceived(data);
+}
+
+// our categories navigation so the user can jump to the desired location
+function createNavigation(categories) {
+    categories.forEach(cat => {
+        console.log("nav");
+        const a = document.createElement("a");
+        a.textContent = cat;
+        a.setAttribute("href", `#${cat}`);
+        document.querySelector("nav").appendChild(a);
     })
+}
+
+
+// fetch data - courses
+function fetchProducts() {
+
+    fetch(productlistLink)
+        .then(function (response) {
+            console.log(response)
+            return response.json();
+        })
+        .then(function (data) {
+            dataReceived(data);
+        })
+}
+
 
 function dataReceived(products) {
     products.forEach(showProduct);
@@ -54,11 +103,11 @@ function showProduct(myProduct) {
 
     if (myProduct.vegetarian) {
         console.log("vegeterian indeed");
-        myClone.querySelector(".vegeterian").classList.add("hidden");
+        // myClone.querySelector(".vegeterian").classList.add("hidden");
 
     } else {
         console.log("not vegetarian appropriate");
-        myClone.querySelector(".vegeterian").classList.remove("hidden");
+        // myClone.querySelector(".vegeterian").classList.remove("hidden");
     }
 
     if (myProduct.discount) {
@@ -72,13 +121,19 @@ function showProduct(myProduct) {
     // to change the content
     myClone.querySelector("h3").textContent = myProduct.name;
     myClone.querySelector(".price").textContent = myProduct.price + " " + "-,";
-    myClone.querySelector(".description p").textContent = myProduct.shortdescription;
+    // myClone.querySelector(".description p").textContent = myProduct.shortdescription;
     myClone.querySelector(".discount").textContent = myProduct.discount + " " + "-,";
 
     myClone.querySelector("img").src = mediumImg + myProduct.image + "-md.jpg";
 
-    // filters's classes
+    // modal
+    myClone.querySelector("button").addEventListener("click", () => {
+        fetch(productsLinkid + myProduct.id)
+            .then(res => res.json())
+            .then(showDetails);
+    });
 
+    // filters's classes
     const article = myClone.querySelector("article");
 
     if (myProduct.vegetarian) {
@@ -92,50 +147,35 @@ function showProduct(myProduct) {
     if (myProduct.alcohol) {
         article.classList.add("alcohol");
     }
-    //
 
 
-    myClone.productsLinkid + myProduct.id;
+    // to change the new 'parent' element - left at the bottom so the rest works
+    const parentEl = document.querySelector("section#" + myProduct.category);
 
-
-    // to change the new 'parent' element
-    const parentEl = document.querySelector("section#starter");
 
     // append the clone to the DOM
     parentEl.appendChild(myClone);
 
-
     // done cloning above
 
+}
+// modal
+function showDetails(data) {
+    console.log(data);
+    modal.querySelector(".modal-name").textContent = data.name;
+    modal.querySelector(".modal-image").src = mediumImg + data.image + "-md.jpg"
+    modal.querySelector(".modal-description").textContent = data.longdescription;
+    modal.querySelector(".modal-price").textContent = data.price + " " + ",-";
 
-    // modal box
-    let modalBtn = document.getElementById("modal-btn");
-    let modal = document.querySelector(".modal");
-    let closeBtn = document.querySelector(".close-btn");
-
-    modalBtn.onclick = function () {
-        console.log("modal open");
-        modal.style.display = "block";
-    }
-    closeBtn.onclick = function () {
-        modal.style.display = "none";
-    }
-    window.onclick = function (e) {
-        if (e.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-
+    modal.classList.remove("hide");
 }
 
-// veggie filter part ii
 
+// veggie filter part ii
 const veggieFilter = document.querySelector("#veggiefilter");
 veggieFilter.addEventListener("click", filterVeggieClicked);
 
 function filterVeggieClicked() {
-    // select our veggie approved meals
     const articles = document.querySelectorAll("article:not(.vegeterian)");
 
     articles.forEach(elem => {
@@ -144,12 +184,10 @@ function filterVeggieClicked() {
 }
 
 // discount filter part ii
-
 const discountFilter = document.querySelector("#discount");
 discountFilter.addEventListener("click", filterDiscountClicked);
 
 function filterDiscountClicked() {
-    // select our discounted meals
     const articles = document.querySelectorAll("article:not(.discount)");
 
     articles.forEach(elem => {
@@ -158,15 +196,19 @@ function filterDiscountClicked() {
 }
 
 // alcohol filter part ii
-
 const nonalcoholicFilter = document.querySelector("#nonalcoholic");
 nonalcoholicFilter.addEventListener("click", filteralcoholClicked);
 
 function filteralcoholClicked() {
-    // select our nonalcoholic approved meals
     const articles = document.querySelectorAll("article.alcohol");
 
     articles.forEach(elem => {
         elem.classList.toggle("hidden");
     })
 }
+
+
+// our modal
+modal.addEventListener("click", () => {
+    modal.classList.add("hide");
+});
