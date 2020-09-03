@@ -21,8 +21,8 @@ function init() {
                 categoriesReceived(data);
             })
 }
-init();
 
+init();
 
 
 // categories
@@ -94,20 +94,12 @@ function showProduct(myProduct) {
     if (myProduct.soldout) {
         console.log("sold out indeed");
         myClone.querySelector(".soldOut").classList.remove("hidden");
+        myClone.querySelector("article").style.opacity = "0.5";
 
     } else {
         console.log("not sold out");
         myClone.querySelector(".soldOut").classList.add("hidden");
 
-    }
-
-    if (myProduct.vegetarian) {
-        console.log("vegeterian indeed");
-        // myClone.querySelector(".vegeterian").classList.add("hidden");
-
-    } else {
-        console.log("not vegetarian appropriate");
-        // myClone.querySelector(".vegeterian").classList.remove("hidden");
     }
 
     if (myProduct.discount) {
@@ -117,6 +109,16 @@ function showProduct(myProduct) {
         console.log("not on discount");
         myClone.querySelector(".discount").classList.add("hidden");
     }
+
+    if (myProduct.vegetarian) {
+        console.log("vegeterian indeed");
+        myClone.querySelector(".vegeterian-approved img").classList.remove("hidden");
+
+    } else {
+        console.log("not vegeterian approved");
+        myClone.querySelector(".vegeterian-approved img").classList.add("hidden");
+    }
+
 
     // to change the content
     myClone.querySelector("h3").textContent = myProduct.name;
@@ -161,11 +163,12 @@ function showProduct(myProduct) {
 }
 // modal
 function showDetails(data) {
-    console.log(data);
+    console.log("data");
     modal.querySelector(".modal-name").textContent = data.name;
     modal.querySelector(".modal-image").src = mediumImg + data.image + "-md.jpg"
     modal.querySelector(".modal-description").textContent = data.longdescription;
     modal.querySelector(".modal-price").textContent = data.price + " " + ",-";
+
 
     modal.classList.remove("hide");
 }
