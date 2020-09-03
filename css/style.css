@@ -306,6 +306,7 @@ article {
 .box {
     display: flex;
     font-family: 'Lato', sans-serif;
+    justify-content: space-between;
 }
 
 .modal-description {
@@ -313,11 +314,19 @@ article {
     text-align: left;
 }
 
+.box-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+
+.logos {
+    display: flex;
+}
+
 .modal-price {
     background: darkgreen;
-    display: block;
-    margin: 0 auto;
-    margin-right: 0;
     max-width: 80px;
     padding: 7px 13px;
     border-radius: 3px;
@@ -384,4 +393,28 @@ article {
     .modal-image {
         max-width: 150px;
     }
+}
+
+.rating {
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome;
+}
+
+.rating::before {
+    content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.rating-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.rating-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: goldenrod;
 }

@@ -119,6 +119,12 @@ function showProduct(myProduct) {
         myClone.querySelector(".vegeterian-approved img").classList.add("hidden");
     }
 
+    //    if (myProduct.allergens) {
+    //        console.log("no lactose");
+    //    } else {
+    //        console.log("lactose");
+    //    }
+
 
     // to change the content
     myClone.querySelector("h3").textContent = myProduct.name;
@@ -163,12 +169,44 @@ function showProduct(myProduct) {
 }
 // modal
 function showDetails(data) {
-    console.log("data");
+    console.log(data);
     modal.querySelector(".modal-name").textContent = data.name;
     modal.querySelector(".modal-image").src = mediumImg + data.image + "-md.jpg"
     modal.querySelector(".modal-description").textContent = data.longdescription;
     modal.querySelector(".modal-price").textContent = data.price + " " + ",-";
 
+    if (data.vegetarian) {
+        console.log("vegeterian indeed modal");
+        modal.querySelector(".vegeterian-approved img").classList.remove("hidden");
+
+    } else {
+        console.log("not vegeterian approved modal");
+        modal.querySelector(".vegeterian-approved img").classList.add("hidden");
+    }
+    // stars in the modal
+    if (data.stars == 1) {
+        console.log("i have one star");
+        modal.querySelector(".rating-inner").style.width = "20%";
+        modal.querySelector(".rating-inner").style.color = "#ffffff";
+    } else if (data.stars == 2) {
+        console.log("i have two stars");
+        modal.querySelector(".rating-inner").style.width = "40%";
+    } else if (data.stars == 3) {
+        console.log("three stars");
+        modal.querySelector(".rating-inner").style.width = "60%";
+    } else if (data.stars == 4) {
+        console.log("four stars");
+        modal.querySelector(".rating-inner").style.width = "80%";
+    } else if (data.stars == 5) {
+        console.log("five stars");
+        modal.querySelector(".rating-inner").style.width = "100%";
+    }
+
+    if (data.allergens) {
+        console.log("no bueno lactose");
+    } else {
+        console.log("muy bueno med lactose");
+    }
 
     modal.classList.remove("hide");
 }
