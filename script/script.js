@@ -131,7 +131,8 @@ function showProduct(myProduct) {
     function discountedItem() {
         const originalPrice = myProduct.price;
         const discountPercent = myProduct.discount;
-        const result = originalPrice * discountPercent / 100;
+        const result = originalPrice - (discountPercent / 100 * originalPrice)
+        ''
         return result;
     }
 
