@@ -108,6 +108,7 @@ function showProduct(myProduct) {
     } else {
         console.log("not on discount");
         myClone.querySelector(".discount").classList.add("hidden");
+        myClone.querySelector(".price").classList.remove("strike");
     }
 
     if (myProduct.vegetarian) {
@@ -119,32 +120,30 @@ function showProduct(myProduct) {
         myClone.querySelector(".vegeterian-approved img").classList.add("hidden");
     }
 
-    discountedItem();
-
     // to change the content
     myClone.querySelector("h3").textContent = myProduct.name;
     myClone.querySelector(".price").textContent = myProduct.price + " " + "-,";
     // myClone.querySelector(".description p").textContent = myProduct.shortdescription;
     myClone.querySelector(".discount").textContent = discountedItem() + " " + "-,";
 
-    // math
+    // math discount
     function discountedItem() {
         const originalPrice = myProduct.price;
         const discountPercent = myProduct.discount;
-        const result = originalPrice - (discountPercent / 100 * originalPrice)
-        ''
+        const result = originalPrice - (discountPercent / 100 * originalPrice);
         return result;
     }
 
     myClone.querySelector("img").src = mediumImg + myProduct.image + "-md.jpg";
 
-    // discount
     // modal
     myClone.querySelector("button").addEventListener("click", () => {
         fetch(productsLinkid + myProduct.id)
             .then(res => res.json())
             .then(showDetails);
     });
+
+
 
     // filters's classes
     const article = myClone.querySelector("article");
@@ -179,6 +178,25 @@ function showDetails(data) {
     modal.querySelector(".modal-image").src = mediumImg + data.image + "-md.jpg"
     modal.querySelector(".modal-description").textContent = data.longdescription;
     modal.querySelector(".modal-price").textContent = data.price + " " + ",-";
+    modal.querySelector(".modal-discounted").textContent = discountedItem() + " " + "-,";
+
+    // math discount
+    function discountedItem() {
+        const originalPrice = data.price;
+        const discountPercent = data.discount;
+        const result = originalPrice - (discountPercent / 100 * originalPrice);
+        return result;
+    }
+
+    if (data.discount) {
+        console.log("yes i am on discount");
+        modal.querySelector(".modal-price").classList.add("strike");
+        modal.querySelector(".discount").classList.remove("hidden");
+    } else {
+        console.log("no discount here");
+        modal.querySelector(".discount").classList.add("hidden");
+        modal.querySelector(".modal-price").classList.remove("strike");
+    }
 
     if (data.vegetarian) {
         console.log("vegeterian indeed modal");
