@@ -299,7 +299,7 @@ article {
 }
 
 .modal-image {
-    max-width: 400px;
+    max-width: 450px;
     border-radius: 20px;
 }
 
@@ -338,6 +338,7 @@ article {
     justify-content: space-between;
     flex-direction: column;
 }
+
 
 /* VEGETERIAN AND ALLERGES STATUS */
 

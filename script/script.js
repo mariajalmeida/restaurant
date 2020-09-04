@@ -134,6 +134,7 @@ function showProduct(myProduct) {
 
     myClone.querySelector("img").src = mediumImg + myProduct.image + "-md.jpg";
 
+    // discount
     // modal
     myClone.querySelector("button").addEventListener("click", () => {
         fetch(productsLinkid + myProduct.id)
@@ -202,10 +203,13 @@ function showDetails(data) {
         modal.querySelector(".rating-inner").style.width = "100%";
     }
 
-    if (data.allergens) {
+    if (data.allergens["0"]) {
         console.log("no bueno lactose");
+        modal.querySelector(".lactose").classList.add("hidden");
+
     } else {
-        console.log("muy bueno med lactose");
+        console.log("muy bueno uden lactose");
+        modal.querySelector(".lactose").classList.remove("hidden");
     }
 
     modal.classList.remove("hide");
