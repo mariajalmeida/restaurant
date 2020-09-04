@@ -188,6 +188,16 @@ function showDetails(data) {
         return result;
     }
 
+    if (data.soldout) {
+        console.log("sold out indeed");
+        modal.querySelector(".soldOut-modal").classList.remove("hidden");
+
+    } else {
+        console.log("not sold out");
+        modal.querySelector(".soldOut-modal").classList.add("hidden");
+
+    }
+
     if (data.discount) {
         console.log("yes i am on discount");
         modal.querySelector(".modal-price").classList.add("strike");

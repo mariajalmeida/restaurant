@@ -120,7 +120,7 @@ h2 {
 
 h2 {
     text-transform: uppercase;
-    font-size: 27px;
+    font-size: calc(20px - 5%);
     font-family: 'Syncopate', sans-serif;
 }
 
@@ -194,6 +194,16 @@ article {
     border-radius: 20px 20px 0px 0px;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.soldOut-modal {
+    background: brown;
+    margin: 0;
+    padding: 1px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 24px;
 }
 
 .hidden {
@@ -292,7 +302,7 @@ article {
 
 
 .modal-name {
-    font-size: 25px;
+    font-size: calc(26px - 20%);
     text-transform: uppercase;
     margin: 0.6em;
     font-family: 'Syncopate', sans-serif;
@@ -395,13 +405,20 @@ article {
     }
 
     .modal-image {
-        max-width: 300px;
+        max-width: 100%;
+        height: auto;
     }
+
+    nav a {
+        display: block;
+    }
+
 }
 
-@media only screen and (max-width: 400px) {
-    .modal-image {
-        max-width: 150px;
+@media only screen and (max-width: 500px) {
+
+    .modal-name {
+        font-size: calc(24px - 30%);
     }
 }
 
