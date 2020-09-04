@@ -187,7 +187,7 @@ article {
     right: 0;
 }
 
-.soldOut p {
+.image_inner .soldOut p {
     background: brown;
     margin: 0;
     padding: 13px;
@@ -237,6 +237,7 @@ article {
     border: 1px solid #7c1f17;
     padding: 40px;
     margin: auto;
+    margin-top: 10px;
     width: 75%;
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
