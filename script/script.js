@@ -119,18 +119,21 @@ function showProduct(myProduct) {
         myClone.querySelector(".vegeterian-approved img").classList.add("hidden");
     }
 
-    //    if (myProduct.allergens) {
-    //        console.log("no lactose");
-    //    } else {
-    //        console.log("lactose");
-    //    }
-
+    discountedItem();
 
     // to change the content
     myClone.querySelector("h3").textContent = myProduct.name;
     myClone.querySelector(".price").textContent = myProduct.price + " " + "-,";
     // myClone.querySelector(".description p").textContent = myProduct.shortdescription;
-    myClone.querySelector(".discount").textContent = myProduct.discount + " " + "-,";
+    myClone.querySelector(".discount").textContent = discountedItem() + " " + "-,";
+
+    // math
+    function discountedItem() {
+        const originalPrice = myProduct.price;
+        const discountPercent = myProduct.discount;
+        const result = originalPrice * discountPercent / 100;
+        return result;
+    }
 
     myClone.querySelector("img").src = mediumImg + myProduct.image + "-md.jpg";
 
